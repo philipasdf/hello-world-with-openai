@@ -1,19 +1,13 @@
 <script setup lang="ts">
 import { onMounted, ref, type Ref } from "vue";
-import { getCountryflagSvgUrl } from "./countryflag-api";
 import { getRandomLanguage, LANGUAGES } from "./languages";
 
 const languagesSessKey = "hello-openai-languages";
 const languages = LANGUAGES;
 const rndLng = getRandomLanguage();
-let countryFlag = ref("");
 let selected: Ref<string[]> = ref([]);
 
 onMounted(async () => {
-  // CORS problem
-  // if (rndLng.country) {
-  //    countryFlag.value = getCountryflagSvgUrl(rndLng.country);
-  //  }
   selected.value = getLanguageSelection();
 });
 
@@ -36,7 +30,6 @@ function getLanguageSelection() {
 </script>
 
 <template>
-  <!-- <img v-if="countryFlag !== ''" v-bind:src="countryFlag" /> CORS problem -->
   <div class="checkbox-container">
     <label v-for="item in languages" :key="item.language">
       <input
@@ -57,7 +50,7 @@ function getLanguageSelection() {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
   grid-gap: 1rem;
-  justify-items: left; /* Added */
+  justify-items: left;
 
   @media (max-width: 768px) {
     grid-template-columns: repeat(auto-fill, minmax(5rem, 1fr));
