@@ -1,0 +1,100 @@
+<!-- <!DOCTYPE html>
+<html>
+   <head>
+      <title>Hello World</title>
+      <script src="script.js"></script>
+   </head>
+   <body>
+      <h1>Hello World</h1>
+      <div id="phrase"></div>
+   </body>
+</html>
+
+<script lang="ts">
+   const languages = ['fi', 'bg', 'da', 'nl'];
+   const phrases = [
+      'Hello',
+      'How are you?',
+      'Thank you!'
+   ];
+   
+   function getRandomLanguage() {
+      return languages[Math.floor(Math.random() * languages.length)];
+   }
+
+   function getRandomPhrase() {
+      return phrases[Math.floor(Math.random() * phrases.length)];
+   }
+   
+   const language = getRandomLanguage();
+   const phraseElement = document.getElementById('phrase');
+   const apikey = 'AIzaSyDrDmtu9TVBeaekCl8-nnPuLf22H5JPg8w';
+   const phrase = getRandomPhrase();
+
+   fetch(`https://translation.googleapis.com/language/translate/v2?key=${apikey}&q=${phrase}&source=en&target=${language}`)
+      .then(response => response.json())
+      .then(data => {
+         phraseElement.innerText = `${data.data.translations[0].translatedText} (${phrase} - ${data.data.translations[0].detectedSourceLanguage})`;
+   });
+
+   fetch(`https://translation.googleapis.com/language/translate/v2/languages?key=${apikey}&target=en&language=${language}`)
+      .then(response => response.json())
+      .then(data => {
+         console.log(data);
+   });
+</script> -->
+
+<html>
+<head>
+<title>Google Translate Api Demo</title>
+<style>
+   #languageCheckboxes {
+       margin: 20px;
+       display: flex;
+       flex-wrap: wrap;
+       justify-content: space-between;
+   }
+   
+   #languageCheckboxes input[type="checkbox"] {
+       margin: 10px;
+       vertical-align: middle;
+   }
+   
+   </style>
+</head>
+<body>
+
+<h1>Select Languages to Translate</h1>
+
+<div id="languageCheckboxes"></div>
+
+<script>
+   const apikey = 'AIzaSyDrDmtu9TVBeaekCl8-nnPuLf22H5JPg8w';
+   fetch(`https://translation.googleapis.com/language/translate/v2/languages?key=${apikey}&target=de`)
+   .then(function(response) {
+       return response.json();
+   })
+   .then(function(data) {
+       console.log(data);
+       // loop through the response data and create checkboxes for each language
+       for (var i = 0; i < data.data.languages.length; i++) {
+           // create a checkbox
+           var checkbox = document.createElement('input');
+           checkbox.type = 'checkbox';
+           checkbox.name = data.data.languages[i].language;
+           checkbox.value = data.data.languages[i].language;
+
+           // create a label
+           var label = document.createElement('label');
+           label.htmlFor = data.data.languages[i].language;
+           label.appendChild(document.createTextNode(data.data.languages[i].name));
+           
+           // add checkbox and label to the DOM
+           document.getElementById('languageCheckboxes').appendChild(checkbox);
+           document.getElementById('languageCheckboxes').appendChild(label);
+       }
+   });
+</script>
+
+</body>
+</html>
