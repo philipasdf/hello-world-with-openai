@@ -154,7 +154,7 @@ export function getStoredLanguageSelection() {
   if (languages) {
     return JSON.parse(languages);
   } else {
-    return [];
+    return LANGUAGES.map((l) => l.language); // give all, so all checkboxes are checked
   }
 }
 
