@@ -1,13 +1,42 @@
 <script setup lang="ts">
+import { onMounted, ref } from "vue";
+
 defineProps({
   randomText: String,
   languageName: String,
   translatedText: String,
 });
+
+const range = 50;
+let timeout: number;
+let transformValue = ref("rotateX(0deg) rotateY(0deg)");
+
+function calcValue(a: number, b: number) {
+  return ((a / b) * range - range / 2).toFixed(1);
+}
+
+onMounted(() => {
+  document.addEventListener(
+    "mousemove",
+    ({ x, y }) => {
+      if (timeout) {
+        window.cancelAnimationFrame(timeout);
+      }
+
+      timeout = window.requestAnimationFrame(() => {
+        const yValue = calcValue(y, window.innerHeight);
+        const xValue = calcValue(x, window.innerWidth);
+
+        transformValue.value = `rotateX(${yValue}deg) rotateY(${xValue}deg)`;
+      });
+    },
+    false
+  );
+});
 </script>
 
 <template>
-  <div class="main-container">
+  <div class="main-container" :style="{ transform: transformValue }">
     <div class="hello-container">
       <span class="text random-text">{{ randomText }}</span>
       <br />
