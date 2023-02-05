@@ -1,10 +1,14 @@
 <script setup lang="ts">
 import { onMounted, ref, type Ref } from "vue";
+import DisplayHelloContainer from "./DisplayHelloContainer.vue";
 import { getRandomLanguage, LANGUAGES } from "./languages";
+import { getRandomPhrase } from "./phrases";
 
 const languagesSessKey = "hello-openai-languages";
 const languages = LANGUAGES;
 const rndLng = getRandomLanguage();
+const rndText = getRandomPhrase();
+const translatedText = ref("");
 let selected: Ref<string[]> = ref([]);
 
 onMounted(async () => {
@@ -43,6 +47,11 @@ function getLanguageSelection() {
       }}</span>
     </label>
   </div>
+  <DisplayHelloContainer
+    :random-text="rndText"
+    :language-name="rndLng.name"
+    :translated-text="translatedText"
+  ></DisplayHelloContainer>
 </template>
 
 <style lang="scss">
