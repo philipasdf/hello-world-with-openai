@@ -1,34 +1,26 @@
 <script setup lang="ts">
 import { onMounted, ref, type Ref } from "vue";
 import DisplayHelloContainer from "./DisplayHelloContainer.vue";
-import { getRandomLanguage, LANGUAGES } from "./languages";
+import {
+  getRandomLanguage,
+  getStoredLanguageSelection,
+  LANGUAGES,
+  setLanguageSelection,
+} from "./languages";
 import { getRandomPhrase } from "./phrases";
 
-const languagesSessKey = "hello-openai-languages";
 const languages = LANGUAGES;
-const rndLng = getRandomLanguage();
+const rndLng: any = ref({});
 const rndText: any = getRandomPhrase();
 let selected: Ref<string[]> = ref([]);
 
 onMounted(async () => {
-  selected.value = getLanguageSelection();
+  selected.value = getStoredLanguageSelection();
+  rndLng.value = getRandomLanguage();
 });
 
 function onLanguageChecked() {
   setLanguageSelection(selected.value);
-}
-
-function setLanguageSelection(languages: string[]) {
-  sessionStorage.setItem(languagesSessKey, JSON.stringify(languages));
-}
-
-function getLanguageSelection() {
-  const languages = sessionStorage.getItem(languagesSessKey);
-  if (languages) {
-    return JSON.parse(languages);
-  } else {
-    return [];
-  }
 }
 </script>
 
@@ -47,6 +39,7 @@ function getLanguageSelection() {
     </label>
   </div>
   <DisplayHelloContainer
+    v-if="!!rndLng"
     :random-text="rndText.de"
     :language-name="rndLng.name"
     :translated-text="rndText[rndLng.language]"

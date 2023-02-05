@@ -14,32 +14,32 @@ export const LANGUAGES = [
   {
     language: "zh",
     name: "Chinesisch (vereinfacht)",
-    country: "CHN"
+    country: "CHN",
   },
   {
     language: "da",
     name: "Dänisch",
-    country: "DNK"
+    country: "DNK",
   },
   {
     language: "de",
     name: "Deutsch",
-    country: "DEU"
+    country: "DEU",
   },
   {
     language: "en",
     name: "Englisch",
-    country: "GB-ENG"
+    country: "GB-ENG",
   },
   {
     language: "fi",
     name: "Finnisch",
-    country: "FIN"
+    country: "FIN",
   },
   {
     language: "fr",
     name: "Französisch",
-    country: "FRA"
+    country: "FRA",
   },
   {
     language: "el",
@@ -128,5 +128,36 @@ export const LANGUAGES = [
 ];
 
 export function getRandomLanguage() {
+  const storedLngSelections = getStoredLanguageSelection();
+  if (storedLngSelections.length > 0) {
+    const rndLng =
+      storedLngSelections[
+        Math.floor(Math.random() * storedLngSelections.length)
+      ];
+    return getLanguage(rndLng);
+  }
   return LANGUAGES[Math.floor(Math.random() * LANGUAGES.length)];
+}
+
+function getLanguage(key: string) {
+  const lng = LANGUAGES.find((l) => l.language === key);
+  if (!lng) {
+    throw Error("no language found " + key);
+  }
+  return lng;
+}
+
+const languagesSessKey = "hello-openai-languages";
+
+export function getStoredLanguageSelection() {
+  const languages = sessionStorage.getItem(languagesSessKey);
+  if (languages) {
+    return JSON.parse(languages);
+  } else {
+    return [];
+  }
+}
+
+export function setLanguageSelection(languages: string[]) {
+  sessionStorage.setItem(languagesSessKey, JSON.stringify(languages));
 }
