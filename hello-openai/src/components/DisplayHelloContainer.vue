@@ -24,4 +24,23 @@ defineProps({
   padding: 5rem;
   min-height: 50%;
 }
+
+.translated-text {
+  background-size: cover;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 7em;
+  font-weight: bold;
+  opacity: 0.8;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  background: linear-gradient(
+    0,
+    rgb(var(--tertiary-rgb)),
+    rgb(var(--tertiary-light-rgb)),
+    rgb(var(--tertiary-rgb))
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.2s ease-in-out;
+}
 </style>

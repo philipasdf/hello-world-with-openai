@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref, type Ref } from "vue";
+import BackgroundImage from "./BackgroundImage.vue";
 import DisplayHelloContainer from "./DisplayHelloContainer.vue";
 import {
   getRandomLanguage,
@@ -25,6 +26,7 @@ function onLanguageChecked() {
 </script>
 
 <template>
+  <BackgroundImage />
   <div class="checkbox-container">
     <label v-for="item in languages" :key="item.language">
       <input
@@ -70,8 +72,8 @@ function onLanguageChecked() {
 }
 
 .checkbox-container input[type="checkbox"]:checked {
-  background: #3f51b5;
-  border-color: #3f51b5;
+  background: #87cefa;
+  border-color: #000080;
 }
 
 .checkbox-container input[type="checkbox"]:hover {

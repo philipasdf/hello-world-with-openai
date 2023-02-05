@@ -1,11 +1,38 @@
+:root {
+    /**
+    * from coolors.co (searching for 'happy colors')
+    * yellow background: #fee440
+    * brown: #BF3100
+    * orange dark: #FF9F1C
+    * orange light: #FFBF69
+    * white: #FFFFFF
+    * orange red: #EF767A
+    * cyan light: #CBF3F0
+    * cyan dark: #2EC4B6
+    */
+    --background: #fee440;
+    --primary: #BF3100;
+    --secondary: #FF9F1C;
+    --tertiary: #2EC4B6;
+    --tertiary-rgb: 46, 196, 182;
+    --tertiary-light: #18ffe8;
+    --tertiary-light-rgb: 24, 255, 232;
+    --tertiary-lighter: #CBF3F0;
+    --tertiary-lighter-rgb: 203, 243, 240;
+}
+
 body {
+    margin: 0;
     font-family: "Open Sans", Arial, sans-serif;
 }
 
 html, body {
     height: 100%;
+    overflow: hidden;
+    color: var(--primary)
 }
 
 #app {
     height: 100%;
+    width: 100%;
 }

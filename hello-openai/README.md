@@ -3,7 +3,8 @@
 Not just a hello world. Random greetings and phrases in a random language. Maybe a nice picture from the country. Try to build it with chatGPT.
 
 ![chatGPT example](src/assets/chat-example.png)
-![chatGPT example](src/assets/chat-example-2.png)
+![chatGPT example 2](src/assets/chat-example-2.png)
+![chatGPT example 3](src/assets/working-with-css.png)
 
 ## Bemerkungen zu chatGPT
 
