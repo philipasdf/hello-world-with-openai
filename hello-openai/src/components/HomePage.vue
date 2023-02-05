@@ -26,7 +26,7 @@ function onLanguageChecked() {
 </script>
 
 <template>
-  <BackgroundImage />
+  <!-- <BackgroundImage /> -->
   <div class="checkbox-container">
     <label v-for="item in languages" :key="item.language">
       <input
