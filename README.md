@@ -1,10 +1,13 @@
 # hello-openai
 
 Not just a hello world. Random greetings and phrases in a random language. Maybe a nice picture from the country. Try to build it with chatGPT.
+Click the D E M O link below to see.
 
-![chatGPT example](src/assets/chat-example.png)
-![chatGPT example 2](src/assets/chat-example-2.png)
-![chatGPT example 3](src/assets/working-with-css.png)
+**[<p style="text-align: center; color: #FF00FF;">D E M O</p>](https://hello-world-with-openai.web.app/)**
+
+![chatGPT example](screenshots/chat-example.png)
+![chatGPT example 2](screenshots/chat-example-2.png)
+![chatGPT example 3](screenshots/working-with-css.png)
 
 ## Bemerkungen zu chatGPT
 
