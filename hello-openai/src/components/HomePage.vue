@@ -7,8 +7,7 @@ import { getRandomPhrase } from "./phrases";
 const languagesSessKey = "hello-openai-languages";
 const languages = LANGUAGES;
 const rndLng = getRandomLanguage();
-const rndText = getRandomPhrase();
-const translatedText = ref("");
+const rndText: any = getRandomPhrase();
 let selected: Ref<string[]> = ref([]);
 
 onMounted(async () => {
@@ -48,9 +47,9 @@ function getLanguageSelection() {
     </label>
   </div>
   <DisplayHelloContainer
-    :random-text="rndText"
+    :random-text="rndText.de"
     :language-name="rndLng.name"
-    :translated-text="translatedText"
+    :translated-text="rndText[rndLng.language]"
   ></DisplayHelloContainer>
 </template>
 
