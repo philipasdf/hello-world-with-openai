@@ -54,6 +54,7 @@ function onLanguageChecked() {
   grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
   grid-gap: 1rem;
   justify-items: left;
+  padding: 2rem;
 
   @media (max-width: 768px) {
     grid-template-columns: repeat(auto-fill, minmax(5rem, 1fr));
@@ -72,19 +73,19 @@ function onLanguageChecked() {
 }
 
 .checkbox-container input[type="checkbox"]:checked {
-  background: #87cefa;
-  border-color: #000080;
+  background: var(--primary);
+  border-color: var(--secondary);
 }
 
 .checkbox-container input[type="checkbox"]:hover {
-  box-shadow: 0 0 0 3px rgba(63, 81, 181, 0.45);
+  box-shadow: 0 0 0 3px var(--secondary-rgb);
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 }
 
 .labelSelected {
   font-weight: bold;
-  color: #3f51b5;
+  color: var(--primary);
 }
 
 input[type="checkbox"] {
@@ -98,5 +99,6 @@ span {
   line-height: 1rem;
   padding: 0.3rem;
   vertical-align: middle;
+  color: var(--secondary);
 }
 </style>
