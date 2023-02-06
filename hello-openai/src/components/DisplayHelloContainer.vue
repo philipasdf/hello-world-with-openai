@@ -9,11 +9,14 @@ defineProps({
 <template>
   <div class="main-container">
     <div class="border">
-      <span class="language-name">{{ languageName }}</span>
+      <p class="language-name">
+        {{ languageName }}
+      </p>
+      <span class="random-text">{{ randomText }}</span>
       <div class="inner-cutout">
-        <span class="random-text">{{ randomText }}</span>
         <br />
         <p class="knockout translated-text">{{ translatedText }}</p>
+        <br />
       </div>
     </div>
   </div>
@@ -55,8 +58,6 @@ defineProps({
   display: block;
   background-color: #ff6f69;
   margin: 0.5rem;
-  padding-bottom: 40px;
-  height: 100%;
   min-width: 30vw;
   background: radial-gradient(#ff6f69, #ff8b87);
   background-size: 300%;
@@ -67,8 +68,8 @@ defineProps({
   font-size: 2em;
   font-weight: bold;
   position: absolute;
-  top: -32px;
-  left: -13px;
+  top: -24px;
+  left: -7px;
   text-transform: uppercase;
   background: #ffeead;
   -webkit-text-fill-color: transparent;
@@ -76,14 +77,15 @@ defineProps({
 }
 
 .language-name {
+  width: 100%;
+  margin: 10px;
+  padding: 0;
+  text-align: center;
   font-size: 1.25em;
   font-weight: lighter;
   position: absolute;
-  font-size: 1.25em;
-  font-weight: lighter;
-  top: 36px;
-  right: -65px;
-  transform: rotate(90deg);
+  top: 50%;
+  transform: translateX(50%) rotate(90deg);
   background: #88d8b0;
   background-size: 400%;
   -webkit-text-fill-color: transparent;
