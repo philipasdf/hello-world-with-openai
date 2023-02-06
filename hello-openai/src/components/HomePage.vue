@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { onMounted, ref, type Ref } from "vue";
-import BackgroundImage from "./BackgroundImage.vue";
 import DisplayHelloContainer from "./DisplayHelloContainer.vue";
 import {
   getRandomLanguage,
@@ -26,7 +25,6 @@ function onLanguageChecked() {
 </script>
 
 <template>
-  <!-- <BackgroundImage /> -->
   <div class="checkbox-container">
     <label v-for="item in languages" :key="item.language">
       <input
