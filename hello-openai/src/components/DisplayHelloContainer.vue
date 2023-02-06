@@ -22,7 +22,7 @@ defineProps({
   </div>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 .main-container {
   display: flex;
   justify-content: center;
@@ -68,8 +68,8 @@ defineProps({
   font-size: 2em;
   font-weight: bold;
   position: absolute;
-  top: -24px;
-  left: -7px;
+  top: -29px;
+  left: -2px;
   text-transform: uppercase;
   background: #ffeead;
   -webkit-text-fill-color: transparent;
