@@ -29,7 +29,7 @@ defineProps({
   align-items: center;
   padding: 5rem;
   height: 50vh;
-  background: radial-gradient(#ff6f69, #ff8b87);
+  background: var(--background);
 }
 
 @-webkit-keyframes Gradient {
@@ -46,7 +46,11 @@ defineProps({
 
 .border {
   position: relative;
-  background: linear-gradient(110deg, #ffeead 33%, rgba(0, 0, 0, 0) 33%),
+  background: linear-gradient(
+      110deg,
+      var(--font-primary) 33%,
+      rgba(0, 0, 0, 0) 33%
+    ),
     linear-gradient(110deg, #c5e7d7 34%, #88d8b0 34%);
   background-size: 400% 400%;
   background-position: 25% 50%;
@@ -69,24 +73,24 @@ defineProps({
   font-weight: bold;
   position: absolute;
   top: -29px;
-  left: -2px;
+  left: 0px;
   text-transform: uppercase;
-  background: #ffeead;
+  background: var(--font-primary);
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
 }
 
 .language-name {
   width: 100%;
-  margin: 10px;
+  margin: -10px;
   padding: 0;
   text-align: center;
-  font-size: 1.25em;
+  font-size: 1.5em;
   font-weight: lighter;
   position: absolute;
   top: 50%;
-  transform: translateX(50%) rotate(90deg);
-  background: #88d8b0;
+  transform: translateX(-50%) rotate(-90deg);
+  background: var(--font-primary);
   background-size: 400%;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
@@ -96,7 +100,11 @@ defineProps({
   animation: Gradient 5s ease infinite;
   -webkit-animation: Gradient 15s ease infinite;
   -moz-animation: Gradient 5s ease infinite;
-  background: linear-gradient(110deg, #ffeead 33%, rgba(0, 0, 0, 0) 33%),
+  background: linear-gradient(
+      110deg,
+      var(--font-primary) 33%,
+      rgba(0, 0, 0, 0) 33%
+    ),
     linear-gradient(110deg, #c5e7d7 34%, #88d8b0 34%);
   background-size: 400%;
   -webkit-text-fill-color: transparent;

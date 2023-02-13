@@ -7,6 +7,20 @@
     --tertiary-rgb: 46, 196, 182;
     --tertiary-light-rgb: rgb(249, 207, 159);
     --tertiary-lighter-rgb: rgb(255, 255, 255);
+
+    --yellow: #ffeead;
+    --cyan-light: #c5e7d7;
+    --cyan: #88d8b0;
+    --red: #ff8b87;
+    --red-dark: #ff6f69;
+
+    /** LanguagePicker */
+
+    /** DisplayHelloContainer */
+    --font-primary: var(--yellow);
+    --font-secondary: var(--cyan-light);
+    --font-tertiary: var(--cyan);
+    --background: radial-gradient(var(--red-dark), var(--red));
 }
 
 body {
