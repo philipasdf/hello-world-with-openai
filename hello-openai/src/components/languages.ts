@@ -161,3 +161,7 @@ export function getStoredLanguageSelection() {
 export function setLanguageSelection(languages: string[]) {
   localStorage.setItem(languagesSessKey, JSON.stringify(languages));
 }
+
+export function getAllLanguages() {
+  return LANGUAGES.map((l) => l.language);
+}

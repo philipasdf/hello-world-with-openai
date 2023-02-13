@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref, type Ref } from "vue";
 import {
+  getAllLanguages,
   getRandomLanguage,
   getStoredLanguageSelection,
   LANGUAGES,
@@ -19,6 +20,15 @@ onMounted(async () => {
 function onLanguageChecked() {
   setLanguageSelection(selected.value);
 }
+
+function onSelectAll() {
+  selected.value = getAllLanguages();
+  setLanguageSelection(selected.value);
+}
+function onSelectNone() {
+  selected.value = [];
+  setLanguageSelection(selected.value);
+}
 </script>
 <template>
   <div class="checkbox-container">
@@ -34,6 +44,8 @@ function onLanguageChecked() {
       }}</span>
     </label>
   </div>
+  <button v-on:click="onSelectAll()">Alles auswählen</button>
+  <button v-on:click="onSelectNone()">Nichts auswählen</button>
 </template>
 <style scoped lang="scss">
 .checkbox-container {
