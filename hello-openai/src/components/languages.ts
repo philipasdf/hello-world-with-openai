@@ -150,7 +150,7 @@ function getLanguage(key: string) {
 const languagesSessKey = "hello-openai-languages";
 
 export function getStoredLanguageSelection() {
-  const languages = sessionStorage.getItem(languagesSessKey);
+  const languages = localStorage.getItem(languagesSessKey);
   if (languages) {
     return JSON.parse(languages);
   } else {
@@ -159,5 +159,5 @@ export function getStoredLanguageSelection() {
 }
 
 export function setLanguageSelection(languages: string[]) {
-  sessionStorage.setItem(languagesSessKey, JSON.stringify(languages));
+  localStorage.setItem(languagesSessKey, JSON.stringify(languages));
 }
