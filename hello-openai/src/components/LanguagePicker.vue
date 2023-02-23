@@ -31,73 +31,89 @@ function onSelectNone() {
 }
 </script>
 <template>
-  <div class="checkbox-container">
-    <label v-for="item in languages" :key="item.language">
-      <input
-        type="checkbox"
-        :value="item.language"
-        v-model="selected"
-        @change="onLanguageChecked"
-      />
-      <span :class="{ labelSelected: selected.includes(item.language) }">{{
-        item.name
-      }}</span>
-    </label>
+  <div class="language-picker">
+    <ul>
+      <li v-for="item in languages" :key="item.language">
+        <input
+          :id="item.language"
+          type="checkbox"
+          :value="item.language"
+          v-model="selected"
+          @change="onLanguageChecked"
+        />
+        <label :for="item.language">
+          {{ item.name }}
+        </label>
+      </li>
+    </ul>
+    <button v-on:click="onSelectAll()">Alles auswählen</button>
+    <button v-on:click="onSelectNone()">Nichts auswählen</button>
   </div>
-  <button v-on:click="onSelectAll()">Alles auswählen</button>
-  <button v-on:click="onSelectNone()">Nichts auswählen</button>
 </template>
 <style scoped lang="scss">
-.checkbox-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-  grid-gap: 1rem;
-  justify-items: left;
-  padding: 2rem;
+ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style: none;
 
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(auto-fill, minmax(5rem, 1fr));
+  li {
+    display: inline;
+    padding: 0px 2px;
+
+    label {
+      display: inline-block;
+      background-color: rgba(255, 255, 255, 0.9);
+      border: 2px solid rgba(139, 139, 139, 0.3);
+      color: #adadad;
+      border-radius: 25px;
+      white-space: nowrap;
+      margin: 3px 0px;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      transition: all 0.2s;
+      padding: 8px 12px;
+      cursor: pointer;
+
+      &::before {
+        display: inline-block;
+        font-style: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        font-size: 12px;
+        padding: 2px 6px 2px 2px;
+        content: "\f067";
+        transition: transform 0.3s ease-in-out;
+      }
+    }
+
+    input[type="checkbox"] {
+      display: none;
+
+      &:focus + label {
+        border: 2px solid #e9a1ff;
+      }
+    }
+
+    input[type="checkbox"]:checked + label {
+      border: 2px solid #1bdbf8;
+      background-color: #12bbd4;
+      color: #fff;
+      transition: all 0.2s;
+
+      &::before {
+        content: "\f00c";
+        transform: rotate(-360deg);
+        transition: transform 0.3s ease-in-out;
+      }
+    }
   }
-}
-
-.checkbox-container input[type="checkbox"] {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  width: 0.5rem;
-  height: 0.5rem;
-  position: relative;
-  border-radius: 3px;
-  border: 1px solid #ccc;
-}
-
-.checkbox-container input[type="checkbox"]:checked {
-  background: var(--primary);
-  border-color: var(--secondary);
-}
-
-.checkbox-container input[type="checkbox"]:hover {
-  box-shadow: 0 0 0 3px var(--secondary-rgb);
-  transition: all 0.3s ease-in-out;
-  cursor: pointer;
-}
-
-.labelSelected {
-  font-weight: bold;
-  color: var(--primary);
-}
-
-input[type="checkbox"] {
-  display: inline-block;
-  padding: 0.5rem;
-  vertical-align: middle;
-}
-
-span {
-  display: inline-block;
-  line-height: 1rem;
-  padding: 0.3rem;
-  vertical-align: middle;
-  color: var(--secondary);
 }
 </style>

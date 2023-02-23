@@ -27,8 +27,7 @@ defineProps({
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 5rem;
-  height: 50vh;
+  height: 100%;
   background: var(--background);
 }
 

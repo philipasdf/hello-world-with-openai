@@ -1,46 +1,23 @@
-# hello-openai
+# HI WORLD!
 
-Not just a hello world. Random greetings and phrases in a random language. Maybe a nice picture from the country. Try to build it with chatGPT.
-Click the D E M O link below to see.
+Get random short phrases in a random language. Because why not 👻
 
-**[D E M O](https://hello-world-with-openai.web.app/)**
+**[Link to Hi World](https://hello-world-with-openai.web.app/)**
 
-![chatGPT example](screenshots/chat-example.png)
-![chatGPT example 2](screenshots/chat-example-2.png)
-![chatGPT example 3](screenshots/working-with-css.png)
+## Development notes
 
-## Bemerkungen zu chatGPT
-
-1.  Mein Frontend Job ist gesichert: chatGPT ist nicht gut darin, visuelle Probleme zu beheben.
-    Zum Beispiel: die Checkbox und das Label haben nicht dieselbe Höhe.
-
-2.  Ohne den Code zu verstehen, lässt es sich nicht gut entwickeln. Deswegen ist die Frage nach
-    Clean Code vs. Spaghetti Code abzuwägen. Das erfordert aber Zeit und somit verliert man die von chatGPT gewonnene Zeit.
-
-3.  Der Code wird immer größer. Falls man den angefangenen Chat in chatGPT verliert, muss
-    man ihm bei einem neuen chatGPT erst mal erklären, worum es geht. Ihr wisst mas ich meine, chatGPT verliert den Kontext.
-
-4.  Ich fange jetzt alles in VueJS nochmal an. Der erste Versuch eine simple HTML&JS Website zu erstellen ist fehlgeschlagen,
-    da der Code nicht so leicht erweiterbar ist.
-
-5.  Man muss lernen die richtigen Fragen zu stellen, sonst bringt chatGPT keinen Zeitvorteil.
-
-## Project Setup
+### Local dev
 
 ```sh
 npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+### Deploy
 
 ```sh
 npm run build
+firebase deploy
 ```
 
 ### Run Unit Tests with [Vitest](https://vitest.dev/)
