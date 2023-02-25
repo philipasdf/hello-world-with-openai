@@ -41,10 +41,8 @@ function toggleMenu() {
   height: 30px;
   width: 30px;
   box-sizing: border-box;
-  position: absolute;
+  position: relative;
   z-index: 30;
-  left: 20px;
-  top: 15px;
   cursor: pointer;
   @include transition(all 0.3s ease-in);
   // &:hover {

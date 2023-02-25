@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref, type Ref } from "vue";
+import { onMounted, ref, type Ref, computed } from "vue";
 import {
   getAllLanguages,
   getRandomLanguage,
@@ -8,9 +8,9 @@ import {
   setLanguageSelection,
 } from "./languages";
 
-const languages = LANGUAGES;
 const rndLng: any = ref({});
 let selected: Ref<string[]> = ref([]);
+const languages = LANGUAGES;
 
 onMounted(async () => {
   selected.value = getStoredLanguageSelection();
@@ -32,8 +32,8 @@ function onSelectNone() {
 </script>
 <template>
   <div class="language-picker">
-    <ul>
-      <li v-for="item in languages" :key="item.language">
+    <ul class="nav">
+      <li v-for="item in languages" :key="item.language" class="nav-item">
         <input
           :id="item.language"
           type="checkbox"

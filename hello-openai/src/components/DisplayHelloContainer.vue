@@ -118,7 +118,7 @@ defineProps({
 
 @media only screen and (min-width: 768px) {
   .translated-text {
-    font-size: 7em;
+    font-size: 6em;
   }
   .random-text {
     font-size: 2em;
