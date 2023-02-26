@@ -37,18 +37,18 @@ function toggleMenu() {
 }
 
 .menu-btn {
-  border-top: 4px solid #f85051;
+  border-top: 4px solid var(--font-primary);
   height: 30px;
   width: 30px;
   box-sizing: border-box;
   position: relative;
   z-index: 30;
   cursor: pointer;
-  @include transition(all 0.3s ease-in);
-  // &:hover {
-  //   box-shadow: 0 0 0 8px rgba(0, 0, 0, 0.1),
-  //     inset 0 0 0 20px rgba(0, 0, 0, 0.1);
-  // }
+  @include transition(all 0.4s ease-out);
+  &:hover {
+    box-shadow: 0 0 0 8px rgba(0, 0, 0, 0.1),
+      inset 0 0 0 20px rgba(0, 0, 0, 0.1);
+  }
   &:before {
     content: "";
     display: block;
@@ -56,9 +56,9 @@ function toggleMenu() {
     height: 4px;
     width: 30px;
     left: 0;
-    background: #f85051;
+    background: var(--font-primary);
     top: 9px;
-    @include transition(all 0.3s ease-in);
+    @include transition(all 0.4s ease-out);
   }
   &:after {
     content: "";
@@ -67,9 +67,9 @@ function toggleMenu() {
     height: 4px;
     width: 30px;
     left: 0;
-    background: #f85051;
+    background: var(--font-primary);
     bottom: 0;
-    @include transition(all 0.3s ease-in);
+    @include transition(all 0.4s ease-out);
   }
 
   &.close {

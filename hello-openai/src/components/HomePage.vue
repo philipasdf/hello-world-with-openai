@@ -3,27 +3,38 @@ import { onMounted, ref, type Ref } from "vue";
 import DisplayHelloContainer from "./DisplayHelloContainer.vue";
 import BurgerButton from "./BurgerButton.vue";
 import LanguagePicker from "./LanguagePicker.vue";
+import RefreshButton from "./RefreshButton.vue";
 import { getRandomLanguage } from "./languages";
 import { getRandomPhrase } from "./phrases";
 
 const rndLng: any = ref({});
 const isMenuOpened: Ref<Boolean> = ref(false);
-const rndText: any = getRandomPhrase();
+const rndText: any = ref({});
 
 onMounted(async () => {
+  rndText.value = getRandomPhrase();
   rndLng.value = getRandomLanguage();
 });
 
 function toggleMenu(_isMenuOpened: boolean) {
   isMenuOpened.value = _isMenuOpened;
 }
+
+function refresh() {
+  rndText.value = getRandomPhrase();
+  rndLng.value = getRandomLanguage();
+}
 </script>
 
 <template>
   <div class="container">
     <div class="menu" :class="{ opened: isMenuOpened }">
-      <BurgerButton @on-click="toggleMenu($event)" />
-      <LanguagePicker />
+      <div class="menu-btn" style="padding: 1rem">
+        <BurgerButton @on-click="toggleMenu($event)" />
+      </div>
+      <div class="menu-settings">
+        <LanguagePicker />
+      </div>
     </div>
 
     <section class="content">
@@ -34,6 +45,7 @@ function toggleMenu(_isMenuOpened: boolean) {
         :translated-text="rndText[rndLng.language]"
       ></DisplayHelloContainer>
     </section>
+    <RefreshButton @on-click="refresh" />
   </div>
 </template>
 
@@ -45,10 +57,9 @@ $transition-delay: 0.05s;
   display: flex;
   flex-direction: column;
   height: 100%;
-
+  width: 100%;
   position: relative;
   background-color: #533557;
-  height: 100%;
 }
 
 .content {
@@ -75,6 +86,24 @@ $transition-delay: 0.05s;
   max-height: 0;
   transition: $transition-duration;
   transition-delay: $transition-delay;
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+  max-width: 100%;
+
+  .menu-settings {
+    padding: 0.5rem;
+    min-width: 0;
+    flex-shrink: 20;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .menu {
+    .menu-settings {
+      padding: 1rem;
+    }
+  }
 }
 
 .menu.opened {

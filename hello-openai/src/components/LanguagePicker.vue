@@ -52,6 +52,8 @@ function onSelectNone() {
 </template>
 <style scoped lang="scss">
 ul {
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
