@@ -59,13 +59,15 @@ $transition-delay: 0.05s;
   height: 100%;
   width: 100%;
   position: relative;
-  background-color: #533557;
 }
 
 .content {
   flex-grow: 1;
   position: relative;
   transition: $transition-duration;
+  background: var(--background);
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 
   /* content shadow if menu opened */
   &:before {
@@ -90,6 +92,7 @@ $transition-delay: 0.05s;
   flex-direction: row-reverse;
   width: 100%;
   max-width: 100%;
+  background-color: #533557;
 
   .menu-settings {
     padding: 0.5rem;
