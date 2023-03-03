@@ -45,9 +45,15 @@ function onSelectNone() {
           {{ item.name }}
         </label>
       </li>
+      <li v-on:click="onSelectAll()">
+        <label class="button"
+          ><i class="fas fa-check-circle"></i>Alle Sprachen</label
+        >
+      </li>
+      <li v-on:click="onSelectNone()">
+        <label class="button"><i class="fas fa-ban"></i>Keine Sprachen</label>
+      </li>
     </ul>
-    <button v-on:click="onSelectAll()">Alles auswählen</button>
-    <button v-on:click="onSelectNone()">Nichts auswählen</button>
   </div>
 </template>
 <style scoped lang="scss">
@@ -94,6 +100,19 @@ ul {
         content: "\f067";
         transition: transform 0.3s ease-in-out;
       }
+
+      &.button {
+        color: black;
+        background-color: var(--font-tertiary);
+
+        i {
+          padding-right: 5px;
+        }
+
+        &::before {
+          content: none;
+        }
+      }
     }
 
     input[type="checkbox"] {
@@ -112,6 +131,7 @@ ul {
 
       &::before {
         content: "\f00c";
+        padding: 2px 5px 2px 2px;
         transform: rotate(-360deg);
         transition: transform 0.3s ease-in-out;
       }

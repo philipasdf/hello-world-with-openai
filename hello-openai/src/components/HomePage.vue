@@ -29,7 +29,7 @@ function refresh() {
 <template>
   <div class="container">
     <div class="menu" :class="{ opened: isMenuOpened }">
-      <div class="menu-btn" style="padding: 1rem">
+      <div class="menu-btn">
         <BurgerButton @on-click="toggleMenu($event)" />
       </div>
       <div class="menu-settings">
@@ -94,6 +94,9 @@ $transition-delay: 0.05s;
   max-width: 100%;
   background-color: #533557;
 
+  .menu-btn {
+    padding: 1rem;
+  }
   .menu-settings {
     padding: 0.5rem;
     min-width: 0;
@@ -103,6 +106,9 @@ $transition-delay: 0.05s;
 
 @media only screen and (min-width: 768px) {
   .menu {
+    .menu-btn {
+      padding: 2rem;
+    }
     .menu-settings {
       padding: 1rem;
     }
