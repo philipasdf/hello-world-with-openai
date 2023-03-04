@@ -9,10 +9,22 @@
     --tertiary-lighter-rgb: rgb(255, 255, 255);
 
     --yellow: #ffeead;
+    /* --yellow: #fffeae; ticken greller */
     --cyan-light: #c5e7d7;
     --cyan: #88d8b0;
     --red: #ff8b87;
     --red-dark: #ff6f69;
+
+    /** sunflower */
+    --sunflower-light: #ffce54;
+    --sunflower-dark: #FCBB42;
+
+    /** Color Palette: Venedig */
+    --rosa: #f2ad9f;
+    --ruby-grapefruit: #F26968;
+    --limestone: #dfe2d2;
+    --venice: #6cbf84;
+    --moss-river: #323339;
 
     /** LanguagePicker */
 
@@ -20,7 +32,20 @@
     --font-primary: var(--yellow);
     --font-secondary: var(--cyan-light);
     --font-tertiary: var(--cyan);
-    --background: radial-gradient(var(--red-dark), var(--red));
+    --background: var(--red-dark);
+
+    /** LanguagePicker */
+    --lp-background: var(--moss-river);
+    /* --lp-background: #533557; */
+    /* --lp-btn-backgrnd: #ffffffe6; */
+    --lp-btn-border: rgba(139, 139, 139, 0.3);
+    --lp-btn-color: #adadad;
+    --lp-btn-backgrnd: transparent;
+    /* --lp-btn-border: rgba(139, 139, 139, 0.7); */
+    /* /* --lp-btn-color: #ffffff; */
+    --lp-checked-btn-backgrnd: white;
+    --lp-checked-btn-border: var(--limestone);
+    --lp-checked-btn-color: var(--moss-river);
 }
 
 body {

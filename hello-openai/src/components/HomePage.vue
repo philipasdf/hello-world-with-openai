@@ -92,7 +92,7 @@ $transition-delay: 0.05s;
   flex-direction: row-reverse;
   width: 100%;
   max-width: 100%;
-  background-color: #533557;
+  background-color: var(--lp-background);
 
   .menu-btn {
     padding: 1rem;

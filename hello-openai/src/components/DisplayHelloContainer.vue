@@ -58,10 +58,9 @@ defineProps({
 .inner-cutout {
   position: relative;
   display: block;
-  background-color: #ff6f69;
   margin: 0.5rem;
   min-width: 80vw;
-  background: radial-gradient(#ff6f69, #ff8b87);
+  background: var(--background);
   background-size: 300%;
   background-position: 50% 50%;
 }

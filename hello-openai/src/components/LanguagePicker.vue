@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref, type Ref, computed } from "vue";
+import { onMounted, ref, type Ref } from "vue";
 import {
   getAllLanguages,
   getRandomLanguage,
@@ -33,6 +33,15 @@ function onSelectNone() {
 <template>
   <div class="language-picker">
     <ul class="nav">
+      <li v-on:click="onSelectAll()">
+        <input type="checkbox" />
+        <label class="button">Alle auswählen</label>
+      </li>
+      <li v-on:click="onSelectNone()">
+        <label class="button">Leeren</label>
+      </li>
+    </ul>
+    <ul class="nav">
       <li v-for="item in languages" :key="item.language" class="nav-item">
         <input
           :id="item.language"
@@ -44,14 +53,6 @@ function onSelectNone() {
         <label :for="item.language">
           {{ item.name }}
         </label>
-      </li>
-      <li v-on:click="onSelectAll()">
-        <label class="button"
-          ><i class="fas fa-check-circle"></i>Alle Sprachen</label
-        >
-      </li>
-      <li v-on:click="onSelectNone()">
-        <label class="button"><i class="fas fa-ban"></i>Keine Sprachen</label>
       </li>
     </ul>
   </div>
@@ -71,9 +72,9 @@ ul {
 
     label {
       display: inline-block;
-      background-color: rgba(255, 255, 255, 0.9);
-      border: 2px solid rgba(139, 139, 139, 0.3);
-      color: #adadad;
+      background-color: var(--lp-btn-backgrnd);
+      border: 2px solid var(--lp-btn-border);
+      color: var(--lp-btn-color);
       border-radius: 25px;
       white-space: nowrap;
       margin: 3px 0px;
@@ -103,7 +104,8 @@ ul {
 
       &.button {
         color: black;
-        background-color: var(--font-tertiary);
+        background-color: var(--yellow);
+        border: none;
 
         i {
           padding-right: 5px;
@@ -117,16 +119,12 @@ ul {
 
     input[type="checkbox"] {
       display: none;
-
-      &:focus + label {
-        border: 2px solid #e9a1ff;
-      }
     }
 
     input[type="checkbox"]:checked + label {
-      border: 2px solid #1bdbf8;
-      background-color: #12bbd4;
-      color: #fff;
+      border: 2px solid var(--lp-checked-btn-border);
+      background-color: var(--lp-checked-btn-backgrnd);
+      color: var(--lp-checked-btn-color);
       transition: all 0.2s;
 
       &::before {
